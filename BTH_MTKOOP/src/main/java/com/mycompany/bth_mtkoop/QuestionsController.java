@@ -16,6 +16,7 @@
 package com.mycompany.bth_mtkoop;
 
 import com.tnm.bojo.category;
+import com.tnm.services.CategoryServices;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -40,33 +41,16 @@ import javafx.scene.control.ComboBox;
  */
 public class QuestionsController implements Initializable {
     @FXML private ComboBox<category> cbcates;
+    private final static CategoryServices cateServices = new CategoryServices();
+
     
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         try{
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn=DriverManager.getConnection("jdbc:mysql://localhost/quizdb","root","root");
-            
-            Statement stm=conn.createStatement();
-            ResultSet rs = stm.executeQuery("select * from category");
-            
-            List<category> cates= new ArrayList<>();
-            while(rs.next()){
-               int id = rs.getInt("id");
-               String name = rs.getString("name");
-               System.out.printf("%d/%s", id, name);
-               
-               category c= new category(id, name);
-               cates.add(c);
-            }
-            
-            conn.close();
-            this.cbcates.setItems(FXCollections.observableList(cates));
-        } catch(ClassNotFoundException | SQLException ex){
+            this.cbcates.setItems(FXCollections.observableList(cateServices.getCates()));
+   
+        } catch(SQLException ex){
             ex.printStackTrace();
         } 
     }    

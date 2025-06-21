@@ -27,4 +27,12 @@ public class PrimaryController {
     public void handleExam(ActionEvent e){
         MyAlert.getInstance().ShowMsg("Coming soon....");
     }
+    
+    public void handleRegister(ActionEvent e) {
+        MyAlert.getInstance().ShowMsg("Comming soon...");
+    }
+    
+    public void handleLogin(ActionEvent e) {
+        MyAlert.getInstance().ShowMsg("Comming soon...");
+    }
 }
