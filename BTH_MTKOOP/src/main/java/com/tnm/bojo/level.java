@@ -4,18 +4,19 @@
  */
 package com.tnm.bojo;
 
-public class category {
+/**
+ *
+ * @author admin
+ */
+public class level {
     private int id;
     private String name;
+    private String note;
 
-    public category(int id, String name) {
+    public level(int id, String name, String note) {
         this.id = id;
         this.name = name;
-    }
-
-    @Override
-    public String toString() {
-        return this.getName(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+        this.note = note;
     }
 
     /**
@@ -46,8 +47,19 @@ public class category {
         this.name = name;
     }
 
-    
-    
+    /**
+     * @return the note
+     */
+    public String getNote() {
+        return note;
+    }
+
+    /**
+     * @param note the note to set
+     */
+    public void setNote(String note) {
+        this.note = note;
+    }
     
     
 }

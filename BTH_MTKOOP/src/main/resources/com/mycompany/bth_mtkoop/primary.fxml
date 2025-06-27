@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="476.0" prefWidth="388.0" styleClass="main" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.bth_mtkoop.PrimaryController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="476.0" prefWidth="388.0" styleClass="main" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.bth_mtkoop.PrimaryController">
     <children>
         <Text fill="#1a539c" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="QUIZ APP" />
         <Button mnemonicParsing="false" onAction="#handleQuestionManegement" text="Quản lý câu hỏi" />
@@ -12,5 +13,6 @@
         <Button layoutX="279.0" layoutY="225.0" mnemonicParsing="false" onAction="#handlePratice" text="Test" />
       <Button layoutX="104.0" layoutY="288.0" mnemonicParsing="false" onAction="#handlePratice" text="Sign in" />
       <Button layoutX="104.0" layoutY="320.0" mnemonicParsing="false" onAction="#handlePratice" text="Sign up" />
+      <ComboBox fx:id="cbThemes" onAction="#changeTheme" prefWidth="150.0" styleClass="button" />
     </children>
 </VBox>
