@@ -19,7 +19,7 @@ public class MyStage {
     private static MyStage instance;
     private static Scene scene;
     private final Stage stage;
-    private MyStage() throws IOException{
+    private MyStage() {
         
         stage = new Stage();
         stage.setTitle("Quiz App");

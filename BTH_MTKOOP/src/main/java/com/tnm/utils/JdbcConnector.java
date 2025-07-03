@@ -4,9 +4,11 @@
  */
 package com.tnm.utils;
 
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+
 
 /**
  *
@@ -19,14 +21,14 @@ public class JdbcConnector {
     static {
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            
-        } catch(ClassNotFoundException e){
+        }
+        catch(ClassNotFoundException e){
             
         }
     }
     
     private JdbcConnector() throws SQLException{
-        this.conn=DriverManager.getConnection("jdbc:mysql://localhost/quizdb", "root","root");
+        this.conn=DriverManager.getConnection("jdbc:mysql://localhost/quizdb", "root","Admin123@");
     }
     
     public static JdbcConnector getInstance() throws SQLException{

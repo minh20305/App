@@ -27,8 +27,8 @@ public class PrimaryController implements  Initializable{
     }
     
     public void changeTheme(ActionEvent e){
-       this.cbThemes.getSelectionModel().getSelectedItem().updateTheme();
-       ThemeManager.applyTheme(this.cbThemes.getScene());
+       this.cbThemes.getSelectionModel().getSelectedItem().updateTheme(this.cbThemes.getScene());
+       
     }    
             
     public void handleQuestionManegement(ActionEvent e) throws IOException{

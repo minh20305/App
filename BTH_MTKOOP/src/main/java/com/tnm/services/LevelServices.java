@@ -19,7 +19,7 @@ import java.util.List;
  * @author admin
  */
 public class LevelServices {
-    public List<level> getCates() throws SQLException{
+    public List<level> getLevels() throws SQLException{
         Connection conn = JdbcConnector.getInstance().connect();
         Statement stm = conn.createStatement();
         ResultSet rs = stm.executeQuery("select * from level");

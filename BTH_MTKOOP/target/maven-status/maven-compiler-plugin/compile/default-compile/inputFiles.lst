@@ -14,6 +14,8 @@ D:\App\BTH_MTKOOP\src\main\java\module-info.java
 D:\App\BTH_MTKOOP\src\main\java\com\tnm\utils\theme\Theme.java
 D:\App\BTH_MTKOOP\src\main\java\com\mycompany\bth_mtkoop\QuestionsController.java
 D:\App\BTH_MTKOOP\src\main\java\com\mycompany\bth_mtkoop\SecondaryController.java
+D:\App\BTH_MTKOOP\src\main\java\com\tnm\services\QuestionServices.java
+D:\App\BTH_MTKOOP\src\main\java\com\tnm\bojo\question.java
 D:\App\BTH_MTKOOP\src\main\java\com\mycompany\bth_mtkoop\PrimaryController.java
 D:\App\BTH_MTKOOP\src\main\java\com\tnm\bojo\category.java
 D:\App\BTH_MTKOOP\src\main\java\com\tnm\bojo\choice.java
