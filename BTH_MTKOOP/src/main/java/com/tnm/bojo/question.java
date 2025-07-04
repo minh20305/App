@@ -7,6 +7,7 @@ package com.tnm.bojo;
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
  *
  * @author admin
@@ -48,6 +49,13 @@ public class question {
             this.level=l;
             
         }
+
+        public Builder(int id, String content) {
+            this.id = id;
+            this.content = content;
+           
+        }
+        
         
         public Builder addHint(String h){
             this.hint=h;
@@ -64,10 +72,16 @@ public class question {
             return this;
         }
         
+        public Builder addAllChoices(List<choice> choices){
+            this.choices.addAll(choices);
+            return this;
+        }
         public question build(){
             return new question(this);
         }
     }
+    
+    
 
     /**
      * @return the id

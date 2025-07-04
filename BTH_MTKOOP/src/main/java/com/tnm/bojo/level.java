@@ -18,6 +18,9 @@ public class level {
         this.name = name;
         this.note = note;
     }
+    public String toString() {
+        return this.getName(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    }
 
     /**
      * @return the id

@@ -4,7 +4,9 @@
  */
 package com.tnm.utils;
 
+import java.util.Optional;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 
 /**
  *
@@ -30,5 +32,11 @@ public class MyAlert {
     public void ShowMsg(String msg){
         this.a.setContentText(msg); 
         this.a.showAndWait();
+    }
+    
+    public Optional <ButtonType> showMsg(String message, Alert.AlertType type ){
+        this.a.setContentText(message);
+        this.a.setAlertType(type);
+        return this.a.showAndWait();
     }
 }

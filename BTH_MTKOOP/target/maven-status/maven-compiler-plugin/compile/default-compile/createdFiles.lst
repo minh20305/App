@@ -3,6 +3,7 @@ com\tnm\utils\theme\LightFactory.class
 com\tnm\bojo\level.class
 com\tnm\utils\theme\Theme$3.class
 com\tnm\utils\MyAlert.class
+com\tnm\bojo\question.class
 com\tnm\utils\theme\Theme$1.class
 com\mycompany\bth_mtkoop\App.class
 com\mycompany\bth_mtkoop\PrimaryController.class
@@ -11,6 +12,7 @@ module-info.class
 com\tnm\services\LevelServices.class
 com\tnm\utils\MyStage.class
 com\tnm\utils\theme\DefaultFactory.class
+com\tnm\bojo\question$Builder.class
 com\tnm\utils\theme\ThemeFactory.class
 com\tnm\utils\theme\Theme$2.class
 com\tnm\utils\JdbcConnector.class
@@ -18,5 +20,6 @@ com\tnm\services\CategoryServices.class
 com\tnm\utils\theme\Theme.class
 com\tnm\utils\theme\ThemeManager.class
 com\mycompany\bth_mtkoop\SecondaryController.class
+com\tnm\services\QuestionServices.class
 com\tnm\bojo\category.class
 com\tnm\bojo\choice.class

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="main" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.bth_mtkoop.PracticeController">
+   <children>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="Text" />
+      <HBox prefHeight="100.0" prefWidth="200.0" styleClass="main">
+         <children>
+            <TextField fx:id="txtContent" styleClass="input" />
+            <Button mnemonicParsing="false" text="Button" />
+         </children>
+      </HBox>
+      <VBox fx:id="vboxChoices" prefHeight="103.0" prefWidth="580.0" />
+      <HBox prefHeight="100.0" prefWidth="200.0" styleClass="main">
+         <children>
+            <Button mnemonicParsing="false" text="Check" />
+            <Button mnemonicParsing="false" text="Next" />
+         </children>
+      </HBox>
+   </children>
+</VBox>
