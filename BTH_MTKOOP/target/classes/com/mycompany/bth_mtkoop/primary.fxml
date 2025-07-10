@@ -5,11 +5,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="476.0" prefWidth="388.0" styleClass="main" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.bth_mtkoop.PrimaryController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="476.0" prefWidth="388.0" styleClass="main" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.bth_mtkoop.PrimaryController">
     <children>
         <Text fill="#1a539c" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="QUIZ APP" />
         <Button mnemonicParsing="false" onAction="#handleQuestionManegement" styleClass="btn" text="Quản lý câu hỏi" />
-        <Button layoutX="104.0" layoutY="193.0" mnemonicParsing="false" onAction="#handleQuestionManegement" styleClass="btn" text="Practice" />
+        <Button layoutX="104.0" layoutY="193.0" mnemonicParsing="false" onAction="#handlePratice" styleClass="btn" text="Practice" />
         <Button layoutX="279.0" layoutY="225.0" mnemonicParsing="false" onAction="#handlePratice" styleClass="btn" text="Test" />
       <Button layoutX="104.0" layoutY="288.0" mnemonicParsing="false" onAction="#handlePratice" styleClass="btn" text="Sign in" />
       <Button layoutX="104.0" layoutY="320.0" mnemonicParsing="false" onAction="#handlePratice" styleClass="btn" text="Sign up" />

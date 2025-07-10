@@ -12,6 +12,7 @@ import com.tnm.bojo.question;
 import com.tnm.services.CategoryServices;
 import com.tnm.services.LevelServices;
 import com.tnm.services.QuestionServices;
+import com.tnm.utils.Configs;
 import com.tnm.utils.MyAlert;
 import java.net.URL;
 import java.sql.Connection;
@@ -60,28 +61,24 @@ public class QuestionsController implements Initializable {
     @FXML private TableView<question> tbQuestions;
     @FXML private TextField txtSearch;
     
-    private final static CategoryServices cateServices = new CategoryServices();
-    private final static LevelServices levelServices=new LevelServices();
-    private final static QuestionServices questionServices=new QuestionServices();
+    
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        try{
-            this.cbCates.setItems(FXCollections.observableList(cateServices.getCates()));
-            this.cbLevels.setItems(FXCollections.observableList(levelServices.getLevels()));
+        try {
+            this.cbCates.setItems(FXCollections.observableList(Configs.cateServices.getCates()));
+            this.cbLevels.setItems(FXCollections.observableList(Configs.levelServices.getLevels()));
             
             this.loadColumns();
-            
-            this.loadQuestion(questionServices.getQuestions());
-   
-        } catch(SQLException ex){
-            ex.printStackTrace();
-        } 
+            this.loadQuestion(Configs.questionServices.getQuestions());
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
         
         this.txtSearch.textProperty().addListener((e)->{
             try {
-                this.loadQuestion(questionServices.getQuestions(this.txtSearch.getText()));
+                this.loadQuestion(Configs.questionServices.getQuestions(this.txtSearch.getText()));
             } catch (SQLException ex) {
                 Logger.getLogger(QuestionsController.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -89,13 +86,13 @@ public class QuestionsController implements Initializable {
     } 
     public void addChoice(ActionEvent event) {
         HBox h = new HBox();
-        h.getStyleClass().add("Main");
+        h.getStyleClass().add("main");
         
         RadioButton r = new RadioButton();
         r.setToggleGroup(toggleChoice);
         
         TextField txt = new TextField();
-        txt.getStyleClass().add("Input");
+        txt.getStyleClass().add("input");
         h.getChildren().addAll(r, txt);
         
         this.vboxChoices.getChildren().add(h);
@@ -110,17 +107,18 @@ public class QuestionsController implements Initializable {
             for (var c: this.vboxChoices.getChildren()) {
                 HBox h = (HBox) c;
                 
-                choice choice = new choice(((TextField)h.getChildren().get(1)).getText(), 
+                choice ch = new choice(((TextField)h.getChildren().get(1)).getText(), 
                             ((RadioButton)h.getChildren().get(0)).isSelected());
-                b.addChoice(choice);
+                b.addChoice(ch);
             }
             
-            questionServices.addQuestion(b.build());
+            Configs.questionServices.addQuestion(b.build());
             MyAlert.getInstance().ShowMsg("Thêm câu hỏi thành công!");
             
             
             this.tbQuestions.getItems().add(0,b.build());
         } catch (SQLException ex) {
+            System.out.println(ex);
             MyAlert.getInstance().ShowMsg("Thêm câu hỏi thất bại!");
         } catch (Exception ex) {
             MyAlert.getInstance().ShowMsg("Dữ liệu không hợp lệ!");
@@ -147,7 +145,7 @@ public class QuestionsController implements Initializable {
                 if(t.isPresent() && t.get().equals(ButtonType.OK)){
                     question q=(question) cell.getTableRow().getItem();
                     try {
-                        questionServices.deleteQuestion(q.getId());
+                         Configs.questionServices.deleteQuestion(q.getId());
                         this.tbQuestions.getItems().remove(q);
                     } catch (SQLException ex) {
                         MyAlert.getInstance().showMsg("Xoa that bai", Alert.AlertType.WARNING);

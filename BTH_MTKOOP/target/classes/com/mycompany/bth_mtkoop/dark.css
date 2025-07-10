@@ -31,3 +31,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-pref-height:30;
     -fx-font-size: 20;
 }
+
+.Correct {
+    -fx-fill: white;
+    -fx-font-size: 16;
+}
+
+.Wrong {
+    -fx-fill: darkred;
+    -fx-font-size: 16;
+}

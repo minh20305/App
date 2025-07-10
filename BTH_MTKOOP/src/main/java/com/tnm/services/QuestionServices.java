@@ -25,7 +25,7 @@ public class QuestionServices {
     public void addQuestion(question q) throws SQLException{
         Connection conn = JdbcConnector.getInstance().connect();
         conn.setAutoCommit(false);
-        String sql="insert into question(content,hint,imagecategory_id, level_id) VALUES(?, ?, ?, ?, ?)"; 
+        String sql="insert into question(content,hint,image,category_id, level_id) VALUES(?, ?, ?, ?, ?)"; 
     
       PreparedStatement stm = conn.prepareCall(sql);
       stm.setString(1, q.getContent());
