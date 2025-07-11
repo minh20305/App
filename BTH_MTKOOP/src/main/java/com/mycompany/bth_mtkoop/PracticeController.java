@@ -4,8 +4,14 @@
  */
 package com.mycompany.bth_mtkoop;
 
+import com.tnm.bojo.category;
+import com.tnm.bojo.level;
 import com.tnm.bojo.question;
-import com.tnm.services.QuestionServices;
+import com.tnm.services.questions.BaseQuestionServices;
+import com.tnm.services.questions.CategoryQuestionServicesDecorator;
+import com.tnm.services.questions.LevelQuestionServicesDecorator;
+import com.tnm.services.questions.LimitQuestionServicesDecorator;
+import com.tnm.services.questions.QuestionServices;
 import com.tnm.utils.Configs;
 import java.net.URL;
 import java.sql.SQLException;
@@ -13,9 +19,11 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
@@ -36,18 +44,39 @@ public class PracticeController implements Initializable {
     @FXML private VBox vboxChoices;
     @FXML private Text txtContent;
     @FXML private Text txtResult;
+    @FXML private ComboBox<category> cbSearchCates;
+    @FXML private ComboBox<level> cbSearchLevels;
     private List<question> questions;
     private int currentQuest=0;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+        try {
+            this.cbSearchCates.setItems(FXCollections.observableList(Configs.cateServices.getCates()));
+            this.cbSearchLevels.setItems(FXCollections.observableList(Configs.levelServices.getLevels()));
+            
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
     }   
     
     public void handleStart(ActionEvent e) {
         try {
-            this.questions = Configs.questionServices.getQuestions(Integer.parseInt(this.txtNum.getText()));
-            loadQuestion();
-        } catch (SQLException ex) {
+            BaseQuestionServices s = Configs.questionServices;
+            
+            category c = this.cbSearchCates.getSelectionModel().getSelectedItem();
+            if (c != null)
+                s = new CategoryQuestionServicesDecorator(s, c);
+            
+            level l = this.cbSearchLevels.getSelectionModel().getSelectedItem();
+            if (l != null)
+                s = new LevelQuestionServicesDecorator(s, l);
+            
+            s = new LimitQuestionServicesDecorator(s, Integer.parseInt(this.txtNum.getText()));
+        
+            this.questions = s.list();
+            loadQuestion();        
+        } 
+        catch (SQLException ex) {
             Logger.getLogger(PracticeController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

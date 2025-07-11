@@ -7,6 +7,10 @@ package com.tnm.bojo;
 public class category {
     private int id;
     private String name;
+    
+    public category(int id){
+        this.id=id;
+    }
 
     public category(int id, String name) {
         this.id = id;

@@ -13,6 +13,10 @@ public class level {
     private String name;
     private String note;
 
+    public level(int id) {
+        this.id = id;
+        
+    }
     public level(int id, String name, String note) {
         this.id = id;
         this.name = name;
