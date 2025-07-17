@@ -8,6 +8,7 @@ import com.tnm.bojo.category;
 import com.tnm.bojo.level;
 import com.tnm.utils.JdbcConnector;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -18,20 +19,25 @@ import java.util.List;
  *
  * @author admin
  */
-public class LevelServices {
-    public List<level> getLevels() throws SQLException{
-        Connection conn = JdbcConnector.getInstance().connect();
-        Statement stm = conn.createStatement();
-        ResultSet rs = stm.executeQuery("select * from level");
-        
+public class LevelServices extends BaseServices<level>{
+
+    @Override
+    public PreparedStatement getStatement(Connection conn) throws SQLException {
+        return conn.prepareCall("select * from level");
+    }
+
+    @Override
+    public List<level> getResults(ResultSet rs) throws SQLException {
         List<level> levels = new ArrayList<>();
         while(rs.next()){
-            int id = rs.getInt("id");
-            String name = rs.getString("name");
-            String note = rs.getString("note");
-            level c = new level(id, name, note);
-            levels.add(c);
+            int id= rs.getInt("id");
+            String name=rs.getString("name");
+            String note=rs.getString("note");
+            
+            level l= new level(id,name,note);
+            levels.add(l);
         }
         return levels;
     }
+    
 }

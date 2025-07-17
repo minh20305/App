@@ -2,6 +2,7 @@ D:\App\BTH_MTKOOP\src\main\java\com\tnm\services\questions\LevelQuestionServices
 D:\App\BTH_MTKOOP\src\main\java\com\tnm\utils\theme\ThemeFactory.java
 D:\App\BTH_MTKOOP\src\main\java\com\tnm\bojo\level.java
 D:\App\BTH_MTKOOP\src\main\java\com\tnm\services\questions\QuestionDecorator.java
+D:\App\BTH_MTKOOP\src\main\java\com\tnm\services\BaseServices.java
 D:\App\BTH_MTKOOP\src\main\java\com\tnm\utils\MyStage.java
 D:\App\BTH_MTKOOP\src\main\java\com\tnm\utils\theme\LightFactory.java
 D:\App\BTH_MTKOOP\src\main\java\com\tnm\utils\theme\ThemeManager.java
@@ -14,6 +15,7 @@ D:\App\BTH_MTKOOP\src\main\java\com\tnm\bojo\choice.java
 D:\App\BTH_MTKOOP\src\main\java\com\tnm\services\questions\QuestionServices.java
 D:\App\BTH_MTKOOP\src\main\java\com\tnm\services\LevelServices.java
 D:\App\BTH_MTKOOP\src\main\java\com\tnm\utils\theme\DarkFactory.java
+D:\App\BTH_MTKOOP\src\main\java\com\tnm\services\FlyWeightFactory.java
 D:\App\BTH_MTKOOP\src\main\java\com\tnm\utils\JdbcConnector.java
 D:\App\BTH_MTKOOP\src\main\java\com\tnm\services\questions\CategoryQuestionServicesDecorator.java
 D:\App\BTH_MTKOOP\src\main\java\com\tnm\utils\MyAlert.java

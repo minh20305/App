@@ -7,12 +7,14 @@ package com.mycompany.bth_mtkoop;
 import com.tnm.bojo.category;
 import com.tnm.bojo.level;
 import com.tnm.bojo.question;
+import com.tnm.services.FlyWeightFactory;
 import com.tnm.services.questions.BaseQuestionServices;
 import com.tnm.services.questions.CategoryQuestionServicesDecorator;
 import com.tnm.services.questions.LevelQuestionServicesDecorator;
 import com.tnm.services.questions.LimitQuestionServicesDecorator;
 import com.tnm.services.questions.QuestionServices;
 import com.tnm.utils.Configs;
+import com.tnm.utils.MyAlert;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
@@ -23,6 +25,7 @@ import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
@@ -51,15 +54,14 @@ public class PracticeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
-            this.cbSearchCates.setItems(FXCollections.observableList(Configs.cateServices.getCates()));
-            this.cbSearchLevels.setItems(FXCollections.observableList(Configs.levelServices.getLevels()));
-            
+            this.cbSearchCates.setItems(FXCollections.observableList(FlyWeightFactory.getData(Configs.cateServices,"categories")));
+            this.cbSearchLevels.setItems(FXCollections.observableList(FlyWeightFactory.getData(Configs.levelServices,"levels")));
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
     }   
     
-    public void handleStart(ActionEvent e) {
+    public void handleStart(ActionEvent e) throws SQLException {
         try {
             BaseQuestionServices s = Configs.questionServices;
             
@@ -74,7 +76,12 @@ public class PracticeController implements Initializable {
             s = new LimitQuestionServicesDecorator(s, Integer.parseInt(this.txtNum.getText()));
         
             this.questions = s.list();
-            loadQuestion();        
+            if (this.questions.isEmpty())
+                MyAlert.getInstance().showMsg("Không có các câu hỏi phù hợp!", Alert.AlertType.WARNING);
+            else {
+                this.currentQuest = 0;
+                loadQuestion(); 
+            }
         } 
         catch (SQLException ex) {
             Logger.getLogger(PracticeController.class.getName()).log(Level.SEVERE, null, ex);
@@ -115,6 +122,7 @@ public class PracticeController implements Initializable {
     private void loadQuestion(){
         question q = this.questions.get(this.currentQuest);
         this.txtContent.setText(q.getContent());
+        System.out.println("Câu hỏi: " + q.getContent());
         
         this.vboxChoices.getChildren().clear();
         ToggleGroup t = new ToggleGroup();

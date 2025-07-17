@@ -7,6 +7,7 @@ package com.tnm.services;
 import com.tnm.bojo.category;
 import com.tnm.utils.JdbcConnector;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -17,16 +18,19 @@ import java.util.List;
  *
  * @author MINH
  */
-public class CategoryServices {
-    public List<category> getCates() throws SQLException{
-        Connection conn = JdbcConnector.getInstance().connect();
-        Statement stm = conn.createStatement();
-        ResultSet rs = stm.executeQuery("select * from category");
-        
+public class CategoryServices extends BaseServices<category> {
+    
+    @Override
+    public PreparedStatement getStatement(Connection conn) throws SQLException{
+        return conn.prepareCall("select * from category");
+    }
+
+    @Override
+    public List<category> getResults(ResultSet rs) throws SQLException {
         List<category> cates = new ArrayList<>();
         while(rs.next()){
-            int id = rs.getInt("id");
-            String name = rs.getString("name");
+            int id= rs.getInt("id");
+            String name=rs.getString("name");
             
             category c = new category(id, name);
             cates.add(c);

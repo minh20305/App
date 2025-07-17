@@ -10,6 +10,7 @@ import com.tnm.bojo.choice;
 import com.tnm.bojo.level;
 import com.tnm.bojo.question;
 import com.tnm.services.CategoryServices;
+import com.tnm.services.FlyWeightFactory;
 import com.tnm.services.LevelServices;
 import com.tnm.services.questions.BaseQuestionServices;
 import com.tnm.services.questions.CategoryQuestionServicesDecorator;
@@ -73,11 +74,11 @@ public class QuestionsController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         try {
-            this.cbCates.setItems(FXCollections.observableList(Configs.cateServices.getCates()));
-            this.cbLevels.setItems(FXCollections.observableList(Configs.levelServices.getLevels()));
+            this.cbCates.setItems(FXCollections.observableList(FlyWeightFactory.getData(Configs.cateServices,"categories")));
+            this.cbLevels.setItems(FXCollections.observableList(FlyWeightFactory.getData(Configs.levelServices,"levels")));
             
-            this.cbSearchCates.setItems(FXCollections.observableList(Configs.cateServices.getCates()));
-            this.cbSearchLevels.setItems(FXCollections.observableList(Configs.levelServices.getLevels()));
+            this.cbSearchCates.setItems(FXCollections.observableList(FlyWeightFactory.getData(Configs.cateServices,"categories")));
+            this.cbSearchLevels.setItems(FXCollections.observableList(FlyWeightFactory.getData(Configs.levelServices,"levels")));
             
             this.loadColumns();
             this.loadQuestion(Configs.questionServices.list());
