@@ -4,7 +4,7 @@
  */
 package com.tnm.services.questions;
 
-import com.tnm.bojo.level;
+import com.tnm.pojo.level;
 import java.util.List;
 
 /**

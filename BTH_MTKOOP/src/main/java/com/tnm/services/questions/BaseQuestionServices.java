@@ -5,8 +5,8 @@
 package com.tnm.services.questions;
 
 import com.tnm.services.BaseServices;
-import com.tnm.bojo.choice;
-import com.tnm.bojo.question;
+import com.tnm.pojo.choice;
+import com.tnm.pojo.question;
 import com.tnm.utils.JdbcConnector;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

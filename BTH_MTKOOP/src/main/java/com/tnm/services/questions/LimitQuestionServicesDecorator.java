@@ -4,7 +4,7 @@
  */
 package com.tnm.services.questions;
 
-import com.tnm.bojo.question;
+import com.tnm.pojo.question;
 import java.sql.SQLException;
 import java.util.List;
 

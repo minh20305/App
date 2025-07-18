@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.tnm.services.questions;
+package com.tnm.services;
 
-import com.tnm.bojo.question;
+import com.tnm.pojo.question;
 import com.tnm.utils.JdbcConnector;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

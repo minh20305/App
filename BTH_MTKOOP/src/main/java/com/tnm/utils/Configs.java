@@ -8,7 +8,7 @@ import com.tnm.services.CategoryServices;
 import com.tnm.services.LevelServices;
 import com.tnm.services.questions.BaseQuestionServices;
 import com.tnm.services.questions.QuestionServices;
-import com.tnm.services.questions.UpdateQuestionServices;
+import com.tnm.services.UpdateQuestionServices;
 
 /**
  *
@@ -19,4 +19,8 @@ public class Configs {
     public static BaseQuestionServices questionServices = new QuestionServices();
     public static final LevelServices levelServices = new LevelServices();
     public static final UpdateQuestionServices uqs= new UpdateQuestionServices();
+    
+    public static final int NUM_OF_QUEST=10;
+    public static final double[] RATES={0.4,0.4,0.2};
+
 }

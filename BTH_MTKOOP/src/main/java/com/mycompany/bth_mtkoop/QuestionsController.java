@@ -5,10 +5,10 @@
  */
 package com.mycompany.bth_mtkoop;
 
-import com.tnm.bojo.category;
-import com.tnm.bojo.choice;
-import com.tnm.bojo.level;
-import com.tnm.bojo.question;
+import com.tnm.pojo.category;
+import com.tnm.pojo.choice;
+import com.tnm.pojo.level;
+import com.tnm.pojo.question;
 import com.tnm.services.CategoryServices;
 import com.tnm.services.FlyWeightFactory;
 import com.tnm.services.LevelServices;

@@ -6,5 +6,5 @@ module com.mycompany.bth_mtkoop {
 
     opens com.mycompany.bth_mtkoop to javafx.fxml;
     exports com.mycompany.bth_mtkoop;
-    exports com.tnm.bojo;
+    exports com.tnm.pojo;
 }

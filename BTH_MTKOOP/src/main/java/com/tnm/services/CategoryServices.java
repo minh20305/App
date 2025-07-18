@@ -4,7 +4,7 @@
  */
 package com.tnm.services;
 
-import com.tnm.bojo.category;
+import com.tnm.pojo.category;
 import com.tnm.utils.JdbcConnector;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
